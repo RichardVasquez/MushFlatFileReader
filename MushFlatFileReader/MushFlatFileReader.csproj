@@ -49,8 +49,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseVersionFlags.cs" />
+    <Compile Include="GameType.cs" />
+    <Compile Include="HeaderAttribute.cs" />
+    <Compile Include="HeaderFreeAttribute.cs" />
+    <Compile Include="HeaderNextAttribute.cs" />
+    <Compile Include="HeaderRecordPlayers.cs" />
+    <Compile Include="HeaderSize.cs" />
+    <Compile Include="HeaderVersion.cs" />
+    <Compile Include="IMushHeader.cs" />
+    <Compile Include="MushHeader.cs" />
+    <Compile Include="ParserBox.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Universe.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
