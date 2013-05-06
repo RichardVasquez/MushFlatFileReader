@@ -57,6 +57,7 @@
     <Compile Include="HeaderSize.cs" />
     <Compile Include="HeaderVersion.cs" />
     <Compile Include="IMushHeader.cs" />
+    <Compile Include="MushEntry.cs" />
     <Compile Include="MushHeader.cs" />
     <Compile Include="ParserBox.cs" />
     <Compile Include="Program.cs" />

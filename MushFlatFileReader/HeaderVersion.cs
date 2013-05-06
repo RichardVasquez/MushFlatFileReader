@@ -36,6 +36,7 @@
 			SetSpecifics();
 			Register();
 			Original = "+" + c + val;
+			ReadName = true;
 			ReadAttributes = true;
 			DeduceVersion = true;
 			DeduceZone = true;

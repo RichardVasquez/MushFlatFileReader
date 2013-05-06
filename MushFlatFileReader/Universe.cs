@@ -8,7 +8,11 @@ namespace MushFlatFileReader
 		public static Dictionary<string, IMushHeader> Headers = new Dictionary<string, IMushHeader>();
 		public static Dictionary<long,HeaderAttribute> Attributes = new Dictionary<long, HeaderAttribute>();
 
+		public static Dictionary<long, MushEntry> Entries = new Dictionary<long, MushEntry>();
+
 		public static bool HeaderGotten { get { return Headers.ContainsKey("GameFormat"); } }
+
+		public static bool MyDebug = false;
 
 		public static bool ReadNewStrings
 		{
@@ -201,46 +205,18 @@ namespace MushFlatFileReader
 		}
 
 		public static bool TimeChecking = true;
-	}
 
-	public class MushEntry:MushHeader
-	{
-		private static bool _checkedGameConditions;
-
-		public MushEntry(string val) : base(val)
+		public static void RegisterEntry(MushEntry mushEntry)
 		{
-			if (!_checkedGameConditions)
+			if (mushEntry == null || mushEntry.Number < 0)
 			{
-				CheckGameConditions();
+				return;
 			}
-		}
-
-		private static void CheckGameConditions()
-		{
-			if (Universe.DeduceVersion)
+			if (Entries.ContainsKey(mushEntry.Number))
 			{
-				Universe.GameFormat = GameType.TinyMush;
-				Universe.GameVersion = 1;
-				Universe.DeduceName = false;
-				Universe.DeduceZone = false;
-				Universe.DeduceVersion = false;
+				return;
 			}
-			else
-			{
-				if (Universe.DeduceZone)
-				{
-					Universe.DeduceZone = false;
-					Universe.ReadZone = false;
-				}
-			}
-			_checkedGameConditions = true;
+			Entries[ mushEntry.Number ] = mushEntry;
 		}
-
-		#region Overrides of MushHeader
-		protected override void Register()
-		{
-			throw new NotImplementedException();
-		}
-		#endregion
 	}
 }
