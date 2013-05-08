@@ -204,6 +204,78 @@ namespace MushFlatFileReader
 			set { _gameVersion = value; }
 		}
 
+		private static bool? _readLink;
+		public static bool ReadLink
+		{
+			get
+			{
+				if (_readLink.HasValue)
+				{
+					return _readLink.Value;
+				}
+				if (!Headers.ContainsKey("GameFormat"))
+				{
+					return false;
+				}
+
+				var gf = Headers["GameFormat"] as HeaderVersion;
+				if (gf == null)
+				{
+					return false;
+				}
+				return gf.ReadLink != 0;
+			}
+			set { _readLink = value; }
+		}
+
+		private static bool? _readTimeStamps;
+		public static bool ReadTimeStamps
+		{
+			get
+			{
+				if (_readTimeStamps.HasValue)
+				{
+					return _readTimeStamps.Value;
+				}
+				if (!Headers.ContainsKey("GameFormat"))
+				{
+					return false;
+				}
+
+				var gf = Headers["GameFormat"] as HeaderVersion;
+				if (gf == null)
+				{
+					return false;
+				}
+				return gf.ReadTimeStamps != 0;
+			}
+			set { _readTimeStamps = value; }
+		}
+
+		private static bool? _readPowers;
+		public static bool ReadPowers
+		{
+			get
+			{
+				if (_readPowers.HasValue)
+				{
+					return _readPowers.Value;
+				}
+				if (!Headers.ContainsKey("GameFormat"))
+				{
+					return false;
+				}
+
+				var gf = Headers["GameFormat"] as HeaderVersion;
+				if (gf == null)
+				{
+					return false;
+				}
+				return gf.ReadPowers != 0;
+			}
+			set { _readPowers = value; }
+		}
+
 		public static bool TimeChecking = true;
 
 		public static void RegisterEntry(MushEntry mushEntry)
@@ -217,6 +289,15 @@ namespace MushFlatFileReader
 				return;
 			}
 			Entries[ mushEntry.Number ] = mushEntry;
+		}
+
+		public static TinyMushObject GetObject(long l)
+		{
+			if (Entries.ContainsKey(l))
+			{
+				return new TinyMushObject(Entries[l]);
+			}
+			return null;
 		}
 	}
 }
