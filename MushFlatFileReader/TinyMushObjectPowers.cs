@@ -1,6 +1,10 @@
-﻿namespace MushFlatFileReader
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+
+namespace MushFlatFileReader
 {
-	public enum TinyMushPowers
+	[JsonConverter(typeof(StringEnumConverter))]
+	public enum TinyMushObjectPowers
 	{
 		///<summary>
 		///	May change and see quotas 
