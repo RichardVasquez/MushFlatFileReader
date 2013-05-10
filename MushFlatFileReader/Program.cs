@@ -26,7 +26,7 @@ namespace MushFlatFileReader
 			sw3.Start();
 			string json = JsonConvert.SerializeObject(gameObjects, Formatting.Indented);
 			sw3.Stop();
-			using (StreamWriter str = new StreamWriter("nowhere.json"))
+			using (StreamWriter str = new StreamWriter("tinymush.json"))
 			{
 				str.Write(json);
 				str.Close();
