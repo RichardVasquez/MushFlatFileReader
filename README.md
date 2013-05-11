@@ -1,17 +1,16 @@
-﻿TinyMUSH Flat File Reader
-=========================
+﻿# TinyMUSH Flat File Reader
 
-This reads your standard TinyMUSH 3.X ASCII flat file and turns it into a JSON file.  The JSON file returns **everything** _(at least what I could figure out)_ about an object.  Related DbRefs, flags, attributes, and more.
+This reads your standard TinyMUSH 3.X ASCII flat file and turns it into a JSON file.  The JSON file returns **everything**, including related DbRefs, flags, attributes, flags and owners of attributes, and more.
 
 This was written for some personal research I'm doing, so it has a few hardcoded options in it, and it doesn't deal with every single edge case that might be designated in your game's configuration.  Additionally, it looks for the ASCII file to be named "flatfile.txt" and it outputs "tinymush.json".
 
-It's pretty fast though, and I could likely make it faster if I cached some of the parsers, but it processes the old Nowhere MUSH database in about 28 seconds on my machine, so I can live with that.
+It's pretty fast though, and I could likely make it faster if I cached some of the parsers, but it processes a bit over 4000 objects in about 28 seconds on my machine, so I can live with that.
 
 I'm throwing this out there as proof of concept, and as a jumping off point for others who might be able to use it.  Feel free to send me pull requests.
 
----
+This latest push has a couple of significant differences besides the refactoring.  It's now a separate library rather than an executable.  I've added a quick example project to the solution that hopefully clears that up.  The output has changed slightly as well while I minimized the code contained in the TinyMushObject class.
 
-Here's an example result:
+## Example Output
 
 ```JSON
 [
@@ -48,31 +47,36 @@ Here's an example result:
         "Flags": []
       }
     ],
-    "DbRef": 0,
-    "Location": -1,
-    "Zone": -1,
-    "Contents": 232,
-    "Exits": 1515,
-    "Link": -1,
-    "Next": -1,
-    "Owner": 3,
-    "Parent": -1,
-    "Money": 0,
-    "AccessTime": "2005-09-05T13:04:55",
-    "ModTime": "2004-12-27T18:07:20",
-    "LockKey": null,
-    "Name": "Nowhere",
-    "ObjectType": "Room"
+    "Data": {
+      "DbRef": 0,
+      "Location": -1,
+      "Zone": -1,
+      "Contents": 232,
+      "Exits": 1515,
+      "Link": -1,
+      "Next": -1,
+      "Owner": 3,
+      "Parent": -1,
+      "Money": 0,
+      "AccessTime": "2005-09-05T13:04:55",
+      "ModTime": "2004-12-27T18:07:20",
+      "LockKey": "",
+      "ObjectType": "Room"
+    },
+    "Name": "Nowhere"
   }
 ]
 
-```
+Your results should be much longer than this.  This is just one room of the MUSH I'm testing.
 
-Obviously, there'd be a lot more than that in your final output file.
+## License
+For right now, for this version, this is the license I'm releasing this under.
 
----
+[![alt text](http://i.creativecommons.org/l/by-nc/3.0/88x31.png "Creative Commons License")](http://creativecommons.org/licenses/by-nc/3.0/)
 
-Requirements: 
+This work is licensed under a [Creative Commons Attribution-NonCommercial 3.0 Unported License](http://creativecommons.org/licenses/by-nc/3.0/)
+
+## Requirements: 
 
  * [Sprache](https://www.nuget.org/packages/Sprache/)
  * [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)

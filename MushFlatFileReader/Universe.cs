@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using MushFlatFileReader.Construction.GameHeaders;
 using MushFlatFileReader.Construction.NamedTypes;
 
-namespace MushFlatFileReader.Construction
+namespace MushFlatFileReader
 {
 	/// <summary>
 	/// This is a big repository for later collation by the <see cref="TinyMushObjectFactory"/>

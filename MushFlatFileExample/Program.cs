@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using MushFlatFileReader.Construction;
+using MushFlatFileReader;
 using MushFlatFileReader.Construction.GameObject;
 using Newtonsoft.Json;
 
-namespace MushFlatFileReader
+namespace MushFlatFileExample
 {
-	public class Program
+	class Program
 	{
-		private static void Main(string[] args)
+		static void Main(string[] args)
 		{
 			try
 			{
@@ -57,7 +57,9 @@ namespace MushFlatFileReader
 			Console.WriteLine();
 			Console.WriteLine("Extracted objects in: {1} ({0} objects total)", gameObjects.Count, sw1.Elapsed);
 			Console.WriteLine("Serialized file in:   {0}", sw2.Elapsed);
-			Console.ReadLine();
+			Console.WriteLine();
+			Console.WriteLine("Press a key to finish.");
+			Console.ReadKey(true);
 		}
 	}
 }
