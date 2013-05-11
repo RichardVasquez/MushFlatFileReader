@@ -1,4 +1,6 @@
-﻿namespace MushFlatFileReader.GameHeaders
+﻿using MushFlatFileReader.Construction;
+
+namespace MushFlatFileReader.GameHeaders
 {
 	public sealed class HeaderRecordPlayers:MushHeader
 	{

@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using MushFlatFileReader.Construction;
 
 namespace MushFlatFileReader.GameHeaders
 {

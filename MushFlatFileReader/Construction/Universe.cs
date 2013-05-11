@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using MushFlatFileReader.Construction.GameObject;
 using MushFlatFileReader.GameHeaders;
 using MushFlatFileReader.NamedTypes;
 
-namespace MushFlatFileReader
+namespace MushFlatFileReader.Construction
 {
 	public static class Universe
 	{

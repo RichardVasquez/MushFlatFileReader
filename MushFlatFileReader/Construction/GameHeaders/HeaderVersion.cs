@@ -1,4 +1,5 @@
-﻿using MushFlatFileReader.LegacyTypes;
+﻿using MushFlatFileReader.Construction;
+using MushFlatFileReader.LegacyTypes;
 using MushFlatFileReader.NamedTypes;
 
 namespace MushFlatFileReader.GameHeaders

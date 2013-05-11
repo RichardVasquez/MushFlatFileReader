@@ -3,9 +3,9 @@ using System.Linq;
 using MushFlatFileReader.GameHeaders;
 using Sprache;
 
-namespace MushFlatFileReader
+namespace MushFlatFileReader.Construction.Parsers
 {
-	public static class ParserBox
+	public static class FlatFileParsers
 	{
 		private static bool _showObjectId;
 		private static bool _showAttributes;

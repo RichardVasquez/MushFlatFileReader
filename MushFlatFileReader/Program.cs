@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using MushFlatFileReader.Construction;
+using MushFlatFileReader.Construction.GameObject;
+using MushFlatFileReader.Construction.Parsers;
 using Newtonsoft.Json;
 using Sprache;
 
@@ -17,7 +20,7 @@ namespace MushFlatFileReader
 			Stopwatch sw2 = new Stopwatch();
 			Stopwatch sw3 = new Stopwatch();
 			sw1.Start();
-			var ph = ParserBox.Headers().TryParse(text);
+			var ph = FlatFileParsers.Headers().TryParse(text);
 			sw2.Start();
 			var keys = Universe.Entries.Keys;
 			List<TinyMushObject> gameObjects = keys.Select(Universe.GetObject).ToList();
