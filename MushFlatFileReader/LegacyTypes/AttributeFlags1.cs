@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MushFlatFileReader
+namespace MushFlatFileReader.LegacyTypes
 {
 	[Flags]
 	// ReSharper disable InconsistentNaming

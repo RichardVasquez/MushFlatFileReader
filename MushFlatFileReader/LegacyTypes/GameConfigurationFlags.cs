@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace MushFlatFileReader
+namespace MushFlatFileReader.LegacyTypes
 {
 	[Flags]
-	public enum DatabaseVersionFlags : long
+	public enum GameConfigurationFlags : long
 	{
 		/// <summary>
 		/// Empty

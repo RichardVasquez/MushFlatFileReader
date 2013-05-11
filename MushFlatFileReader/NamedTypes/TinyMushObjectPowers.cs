@@ -1,135 +1,162 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
-namespace MushFlatFileReader
+namespace MushFlatFileReader.NamedTypes
 {
-	[Flags]
-	// ReSharper disable InconsistentNaming
-	public enum TinyMushPowers1 : long
+	[JsonConverter(typeof(StringEnumConverter))]
+	public enum TinyMushObjectPowers
 	{
 		///<summary>
 		///	May change and see quotas 
 		///</summary>
-		CHG_QUOTAS = 0x00000001,
+		ChangeQuotas,
 		///<summary>
 		///	Can @chown anything or to anyone 
 		///</summary>
-		CHOWN_ANY = 0x00000002,
+		ChownAny,
 		///<summary>
 		///	May use @wall 
 		///</summary>
-		ANNOUNCE = 0x00000004,
+		Announce,
 		///<summary>
 		///	May use @boot 
 		///</summary>
-		BOOT = 0x00000008,
+		Boot,
 		///<summary>
 		///	May @halt on other's objects 
 		///</summary>
-		HALT = 0x00000010,
+		Halt,
 		///<summary>
 		///	I control everything 
 		///</summary>
-		CONTROL_ALL = 0x00000020,
+		ControlAll,
 		///<summary>
 		///	See extra WHO information 
 		///</summary>
-		WIZARD_WHO = 0x00000040,
+		WizardWho,
 		///<summary>
 		///	I can examine everything 
 		///</summary>
-		EXAM_ALL = 0x00000080,
+		ExamineAll,
 		///<summary>
 		///	Can find unfindable players 
 		///</summary>
-		FIND_UNFIND = 0x00000100,
+		FindUnfindable,
 		///<summary>
 		///	I have infinite money 
 		///</summary>
-		FREE_MONEY = 0x00000200,
+		FreeMoney,
 		///<summary>
 		///	I have infinite quota 
 		///</summary>
-		FREE_QUOTA = 0x00000400,
+		FreeQuota,
 		///<summary>
 		///	Can set themselves DARK 
 		///</summary>
-		HIDE = 0x00000800,
+		Hide,
 		///<summary>
 		///	No idle limit 
 		///</summary>
-		IDLE = 0x00001000,
+		NoIdleLimit,
 		///<summary>
 		///	Can @search anyone 
 		///</summary>
-		SEARCH = 0x00002000,
+		Search,
 		///<summary>
 		///	Can get/whisper/etc from a distance 
 		///</summary>
-		LONGFINGERS = 0x00004000,
+		LongFingers,
 		///<summary>
 		///	Can use the @prog command 
 		///</summary>
-		PROG = 0x00008000,
+		Prog,
 		///<summary>
 		///	Can read AF_MDARK attrs 
 		///</summary>
-		MDARK_ATTR = 0x00010000,
+		ReadDarkAttributes,
 		///<summary>
 		///	Can write AF_WIZARD attrs 
 		///</summary>,
-		WIZ_ATTR = 0x00020000,
+		WriteWizardAttributes,
 		///<summary>
 		///	Channel wiz 
 		///</summary>
-		COMM_ALL = 0x00080000,
+		CommChannelWizard,
 		///<summary>
 		///	Player can see the entire queue 
 		///</summary>
-		SEE_QUEUE = 0x00100000,
+		SeeQueue,
 		///<summary>
 		///	Player can see hidden players on WHO list 
 		///</summary>
-		SEE_HIDDEN = 0x00200000,
+		SeeHidden,
 		///<summary>
 		///	Player can set or clear WATCHER 
 		///</summary>
-		WATCH = 0x00400000,
+		Watch,
 		///<summary>
 		///	Player can set the doing poll 
 		///</summary>
-		POLL = 0x00800000,
+		Poll,
 		///<summary>
 		///	Cannot be destroyed 
 		///</summary>
-		NO_DESTROY = 0x01000000,
+		NoDestroy,
 		///<summary>
 		///	Player is a guest 
 		///</summary>
-		GUEST = 0x02000000,
+		Guest,
 		///<summary>
 		///	Player can pass any lock 
 		///</summary>
-		PASS_LOCKS = 0x04000000,
+		PassLocks,
 		///<summary>
 		///	Can @stat anyone 
 		///</summary>
-		STAT_ANY = 0x08000000,
+		StatsAny,
 		///<summary>
 		///	Can give negative money 
 		///</summary>
-		STEAL = 0x10000000,
+		Steal,
 		///<summary>
 		///	Teleport anywhere 
 		///</summary>
-		TEL_ANYWHR = 0x20000000,
+		TeleportAnywhere,
 		///<summary>
 		///	Teleport anything 
 		///</summary>
-		TEL_UNRST = 0x40000000,
+		TeleportAnything,
 		///<summary>
 		///	Can't be killed 
 		///</summary>,
-		UNKILLABLE = 0x80000000
+		Unkillable,
+		///<summary>
+		///	Can build 
+		///</summary>
+		Builder,
+		///<summary>
+		///	Can link an exit to "variable" 
+		///</summary>
+		LinkVariable,
+		///<summary>
+		///	Can link to any object 
+		///</summary>
+		LinkToAny,
+		///<summary>
+		///	Can open from anywhere 
+		///</summary>
+		OpenAnyLocation,
+		///<summary>
+		///	Can use SQL queries directly 
+		///</summary>
+		UseSql,
+		///<summary>
+		///	Can link object to any home 
+		///</summary>
+		LinkToAnyHome,
+		///<summary>
+		///	Can vanish from sight via DARK 
+		///</summary>
+		Cloak
 	}
-	// ReSharper restore InconsistentNaming
 }

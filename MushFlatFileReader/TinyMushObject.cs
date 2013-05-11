@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MushFlatFileReader.GameHeaders;
+using MushFlatFileReader.LegacyTypes;
+using MushFlatFileReader.NamedTypes;
 using Sprache;
 
 namespace MushFlatFileReader
@@ -443,10 +446,10 @@ namespace MushFlatFileReader
 			foreach (MushEntryAttribute attribute in me.Attributes)
 			{
 				var attr = new TinyMushObjectAttribute();
-				if (Enum.IsDefined(typeof (AttributeValues), (AttributeValues)attribute.Id))
+				if (Enum.IsDefined(typeof (ObjectGameBaseAttributeValues), (ObjectGameBaseAttributeValues)attribute.Id))
 				{
 					//	Dealing with stock game attribute
-					attr.Name = Enum.ToObject(typeof (AttributeValues), attribute.Id).ToString();
+					attr.Name = Enum.ToObject(typeof (ObjectGameBaseAttributeValues), attribute.Id).ToString();
 				}
 				else
 				{

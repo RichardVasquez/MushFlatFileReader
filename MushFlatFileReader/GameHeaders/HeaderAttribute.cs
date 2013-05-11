@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
-namespace MushFlatFileReader
+namespace MushFlatFileReader.GameHeaders
 {
 	[DebuggerDisplay("{Number}:{Text}")]
 	public sealed class HeaderAttribute:MushHeader

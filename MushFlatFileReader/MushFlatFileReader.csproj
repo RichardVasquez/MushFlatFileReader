@@ -52,45 +52,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MushEntryAttribute.cs" />
-    <Compile Include="TinyMushAttributeFlags.cs" />
-    <Compile Include="AttributeFlags1.cs" />
-    <Compile Include="AttributeValues.cs" />
-    <Compile Include="DatabaseVersionFlags.cs" />
-    <Compile Include="GameType.cs" />
-    <Compile Include="HeaderAttribute.cs" />
-    <Compile Include="HeaderFreeAttribute.cs" />
-    <Compile Include="HeaderNextAttribute.cs" />
-    <Compile Include="HeaderRecordPlayers.cs" />
-    <Compile Include="HeaderSize.cs" />
-    <Compile Include="HeaderVersion.cs" />
-    <Compile Include="IMushHeader.cs" />
-    <Compile Include="MushEntry.cs" />
-    <Compile Include="MushHeader.cs" />
+    <Compile Include="GameHeaders\HeaderEnding.cs" />
+    <Compile Include="GameHeaders\MushEntryAttribute.cs" />
+    <Compile Include="NamedTypes\TinyMushAttributeFlags.cs" />
+    <Compile Include="LegacyTypes\AttributeFlags1.cs" />
+    <Compile Include="LegacyTypes\ObjectGameBaseAttributeValues.cs" />
+    <Compile Include="LegacyTypes\GameConfigurationFlags.cs" />
+    <Compile Include="NamedTypes\GameType.cs" />
+    <Compile Include="GameHeaders\HeaderAttribute.cs" />
+    <Compile Include="GameHeaders\HeaderFreeAttribute.cs" />
+    <Compile Include="GameHeaders\HeaderNextAttribute.cs" />
+    <Compile Include="GameHeaders\HeaderRecordPlayers.cs" />
+    <Compile Include="GameHeaders\HeaderSize.cs" />
+    <Compile Include="GameHeaders\HeaderVersion.cs" />
+    <Compile Include="GameHeaders\IMushHeader.cs" />
+    <Compile Include="GameHeaders\MushEntry.cs" />
+    <Compile Include="GameHeaders\MushHeader.cs" />
     <Compile Include="ParserBox.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TinyMushObject.cs" />
     <Compile Include="TinyMushObjectAttribute.cs" />
-    <Compile Include="TinyMushObjectFlags.cs" />
-    <Compile Include="TinyMushObjectFlags1.cs" />
-    <Compile Include="TinyMushObjectFlags2.cs" />
-    <Compile Include="TinyMushObjectFlags3.cs" />
-    <Compile Include="TinyMushObjectPowers.cs" />
-    <Compile Include="TinyMushObjectType.cs" />
-    <Compile Include="TinyMushPowers1.cs" />
-    <Compile Include="TinyMushPowers2.cs" />
+    <Compile Include="NamedTypes\TinyMushObjectFlags.cs" />
+    <Compile Include="LegacyTypes\TinyMushObjectFlags1.cs" />
+    <Compile Include="LegacyTypes\TinyMushObjectFlags2.cs" />
+    <Compile Include="LegacyTypes\TinyMushObjectFlags3.cs" />
+    <Compile Include="NamedTypes\TinyMushObjectPowers.cs" />
+    <Compile Include="NamedTypes\TinyMushObjectType.cs" />
+    <Compile Include="LegacyTypes\TinyMushPowers1.cs" />
+    <Compile Include="LegacyTypes\TinyMushPowers2.cs" />
     <Compile Include="Universe.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="flatfile.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using MushFlatFileReader.GameHeaders;
+using MushFlatFileReader.NamedTypes;
 
 namespace MushFlatFileReader
 {

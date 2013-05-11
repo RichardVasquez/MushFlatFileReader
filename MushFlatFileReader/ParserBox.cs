@@ -1,21 +1,48 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using MushFlatFileReader.GameHeaders;
 using Sprache;
 
 namespace MushFlatFileReader
 {
 	public static class ParserBox
 	{
-		public static Parser<object> Headers()
+		private static bool _showObjectId;
+		private static bool _showAttributes;
+
+		/// <summary>
+		/// Should parse the entire document.
+		/// </summary>
+		/// <param name="showId">Indicates if the game object Id should be output.</param>
+		/// <param name="showAttribute">Indicates if the game object attribute Ids should be output</param>
+		public static Parser<string> Headers(bool showId = false, bool showAttribute = false)
 		{
+			_showObjectId = showId;
+			_showAttributes = showAttribute;
+
 			return
 				from h in HeaderLine().Many()
 				from e in ReadEntry().Many()
-				select h;
+				from end in HeaderEnd()
+				select "";
 		}
 
+		/// <summary>
+		/// Parse the end of the dump.
+		/// </summary>
+		/// <returns></returns>
+		public static Parser<MushHeader> HeaderEnd()
+		{
+			return
+				from a in Parse.Char('*')
+				from rest in Parse.AnyChar.Until(Parse.Char('\n'))
+				from e in Parse.Char('\n')
+				select new HeaderEnding("");
+		}
+
+		/// <summary>
+		/// Reads the possible header lines.
+		/// </summary>
 		public static Parser<MushHeader> HeaderLine()
 		{
 			return
@@ -29,6 +56,9 @@ namespace MushFlatFileReader
 				select h;
 		}
 
+		/// <summary>
+		/// Reads the record number of players on the MUSH.
+		/// </summary>
 		public static Parser<HeaderRecordPlayers> RecordPlayers()
 		{
 			return
@@ -39,6 +69,9 @@ namespace MushFlatFileReader
 				select new HeaderRecordPlayers(n);
 		}
 
+		/// <summary>
+		/// Reads the game version the flat file is from.
+		/// </summary>
 		public static Parser<HeaderVersion> GameVersion()
 		{
 			return
@@ -49,6 +82,9 @@ namespace MushFlatFileReader
 				select new HeaderVersion(n,v);
 		}
 
+		/// <summary>
+		/// Reads the size of the game.
+		/// </summary>
 		public static Parser<HeaderSize> GameSize()
 		{
 			return
@@ -59,6 +95,9 @@ namespace MushFlatFileReader
 				select new HeaderSize(n);
 		}
 
+		/// <summary>
+		/// Reads the open user attribute slot
+		/// </summary>
 		public static Parser<HeaderFreeAttribute> FreeAttribute()
 		{
 			return
@@ -69,6 +108,10 @@ namespace MushFlatFileReader
 				select new HeaderFreeAttribute(n);
 		}
 
+		/// <summary>
+		/// Reads the next attribute to allocate when there's no freelist.
+		/// </summary>
+		/// <returns></returns>
 		public static Parser<HeaderNextAttribute> NextAttribute()
 		{
 			return
@@ -80,6 +123,10 @@ namespace MushFlatFileReader
 		}
 
 		#region attribute string stuff
+
+		/// <summary>
+		/// Parses '"' and '\n' at end of string.
+		/// </summary>
 		public static Parser<string> CharSpecialEnd()
 		{
 			return
@@ -88,6 +135,10 @@ namespace MushFlatFileReader
 				select "\"";
 		}
 
+		/// <summary>
+		/// Parses CRLF in multiline text.
+		/// </summary>
+		/// <returns></returns>
 		public static Parser<string> CharSpecialCrLf()
 		{
 			return
@@ -96,6 +147,9 @@ namespace MushFlatFileReader
 				select "\r\n";
 		}
 
+		/// <summary>
+		/// Reads an escaped '\n'
+		/// </summary>
 		public static Parser<string> CharSpecialLf()
 		{
 			return
@@ -104,6 +158,9 @@ namespace MushFlatFileReader
 				select "\n";
 		}
 
+		/// <summary>
+		/// Reads an escaped '\r'
+		/// </summary>
 		public static Parser<string> CharSpecialCr()
 		{
 			return
@@ -112,6 +169,9 @@ namespace MushFlatFileReader
 				select "\r";
 		}
 
+		/// <summary>
+		/// Reads an escaped '\t'
+		/// </summary>
 		public static Parser<string> CharSpecialTab()
 		{
 			return
@@ -120,6 +180,10 @@ namespace MushFlatFileReader
 				select "\t";
 		}
 
+		/// <summary>
+		/// Reads an eescaped \e (ESC representation)
+		/// </summary>
+		/// <returns></returns>
 		public static Parser<string> CharSpecialEscape()
 		{
 			return
@@ -128,6 +192,9 @@ namespace MushFlatFileReader
 				select new string((char) 27, 1);
 		}
 
+		/// <summary>
+		/// Reads an escaped '"'
+		/// </summary>
 		public static Parser<string> CharSpecialQuote()
 		{
 			return
@@ -136,6 +203,9 @@ namespace MushFlatFileReader
 				select "\\\"";
 		}
 
+		/// <summary>
+		/// Reads an escaped backslash.
+		/// </summary>
 		public static Parser<string> CharBackslash()
 		{
 			return
@@ -144,6 +214,9 @@ namespace MushFlatFileReader
 				select "\\\\";
 		}
 
+		/// <summary>
+		/// Dumps high ASCII
+		/// </summary>
 		public static Parser<string> CharHighAscii()
 		{
 			return
@@ -151,6 +224,10 @@ namespace MushFlatFileReader
 				select "";
 		}
 
+		/// <summary>
+		/// Accepts ASCII characters
+		/// </summary>
+		/// <returns></returns>
 		public static Parser<string> CharDefault()
 		{
 			return
@@ -158,24 +235,11 @@ namespace MushFlatFileReader
 				select new string(c, 1);
 		}
 
+		/// <summary>
+		/// Readsa a single acceptable character.
+		/// </summary>
 		public static Parser<string> ValidChar()
 		{
-			if(Universe.MyDebug)
-			{
-				return
-					from s in
-						CharSpecialQuote()
-						.Or(CharSpecialCrLf())
-						.Or(CharSpecialLf())
-						.Or(CharSpecialCr())
-						.Or(CharSpecialTab())
-						.Or(CharSpecialEscape())
-						.Or(CharBackslash())
-						.Or(CharHighAscii())
-						.Or(CharDefault())
-					let sc = Write("\t\ts", s)
-					select s;
-			}
 			return
 				from s in
 					CharSpecialQuote()
@@ -191,6 +255,11 @@ namespace MushFlatFileReader
 		}
 		#endregion
 
+		/// <summary>
+		/// Readsa a string based on the proper format of the
+		/// game configuration.
+		/// </summary>
+		/// <remarks>In some versions, string start with a '"', and in others, they don't.</remarks>
 		public static Parser<string> GetString()
 		{
 			if (Universe.ReadNewStrings)
@@ -208,6 +277,9 @@ namespace MushFlatFileReader
 				select string.Concat(s.ToArray());
 		}
 
+		/// <summary>
+		/// Read an attribute name/definition.
+		/// </summary>
 		public static Parser<HeaderAttribute> GetAttribute()
 		{
 			return
@@ -219,6 +291,9 @@ namespace MushFlatFileReader
 				select new HeaderAttribute(n, s);
 		}
 
+		/// <summary>
+		/// Reads the numeric id of an object.
+		/// </summary>
 		public static Parser<long> GetObjectId()
 		{
 			return
@@ -228,28 +303,27 @@ namespace MushFlatFileReader
 				select long.Parse(n);
 		}
 
+		/// <summary>
+		/// Reads the object definition.
+		/// </summary>
+		/// <remarks>Some games store the name as a separate attribute.</remarks>
 		public static Parser<MushEntry> ReadEntry()
 		{
-			Universe.MyDebug = true;
 			if (Universe.ReadName)
 			{
 				return
 					from l in GetObjectId()
-					let lc = Write("l", l.ToString())
+					let w = Write(_showObjectId, "Object: ", l.ToString())
 					from name in GetString()
-					let namec = Write("name", name)
 					from blob in Parse.Char(c => c != '<' && c != '>', "blah data for now").Many()
-					let blobc=Write("blob", blob.ToString())
 					from a in ReadAttributeContent().Many()
-					let ac = Write("a", a.ToString())
 					from r in Parse.Char('<')
-					let rc=Write("<",r.ToString())
 					from e in Parse.Char('\n')
-					let ec = Write("\\n", "\\n")
 					select new MushEntry(l, name, new string(blob.ToArray()), a);
 			}
 			return
 				from l in GetObjectId()
+				let w = Write(_showObjectId, "Object: ", l.ToString())
 				from blob in Parse.Char(c => c != '<' && c != '>', "blah data for now").Many()
 				from a in ReadAttributeContent().Many()
 				from r in Parse.Char('<')
@@ -257,37 +331,36 @@ namespace MushFlatFileReader
 				select new MushEntry(l, "", new string(blob.ToArray()), a);
 		}
 
+		/// <summary>
+		/// Reads the attribute id and text.
+		/// </summary>
 		public static Parser<MushEntryAttribute> ReadAttributeContent()
 		{
 			return
 				from angle in Parse.Char('>')
-				let ac = Write("\t>",">")
 				from n in Parse.Number
-				let nc = Write("\tn", n)
+				let w1 = Write(_showAttributes, n, " ")
 				from e in Parse.Char('\n')
-				let ec = Write("\te","\\n")
 				from s in GetString()
-				let sc = Write("\ts",s)
+				let w2 = Write(_showAttributes,Environment.NewLine,Environment.NewLine)
 				select new MushEntryAttribute(long.Parse(n), s);
 		}
 
-		private static bool Write(string name, string value)
+		/// <summary>
+		/// Cheap little debug routine to work with parsers.
+		/// </summary>
+		/// <param name="condTest">Whether output should occur.</param>
+		/// <param name="name">First text to output.</param>
+		/// <param name="value">Second text to output.</param>
+		private static bool Write(bool condTest, string name, string value)
 		{
-			return true;
-			Console.Write(name+": ");
-			if (string.IsNullOrEmpty(value))
+			if (!condTest || string.IsNullOrEmpty(value))
 			{
-				Console.WriteLine("[empty]");
-				return true;
+				return false;
 			}
-			if (value.Length < 30)
-			{
-				Console.WriteLine(value);
-				return true;
-			}
-			Console.WriteLine(value.Substring(0,27) + "...");
+
+			Console.Write("{0}{1}", name, value);
 			return true;
 		}
-
 	}
 }

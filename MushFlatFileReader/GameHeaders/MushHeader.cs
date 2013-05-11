@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace MushFlatFileReader
+namespace MushFlatFileReader.GameHeaders
 {
 	[DebuggerDisplay("{Original}")]
 	public abstract class MushHeader:IMushHeader

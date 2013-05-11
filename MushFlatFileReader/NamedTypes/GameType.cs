@@ -1,4 +1,4 @@
-﻿namespace MushFlatFileReader
+﻿namespace MushFlatFileReader.NamedTypes
 {
 	public enum GameType
 	{

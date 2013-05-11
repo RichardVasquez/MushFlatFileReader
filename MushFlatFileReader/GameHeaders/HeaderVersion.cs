@@ -1,4 +1,7 @@
-﻿namespace MushFlatFileReader
+﻿using MushFlatFileReader.LegacyTypes;
+using MushFlatFileReader.NamedTypes;
+
+namespace MushFlatFileReader.GameHeaders
 {
 	public sealed class HeaderVersion:MushHeader
 	{
@@ -73,23 +76,23 @@
 
 		private void SetBasics()
 		{
-			if (( Number & (long) DatabaseVersionFlags.Gdbm ) != 0)
+			if (( Number & (long) GameConfigurationFlags.Gdbm ) != 0)
 			{
 				ReadAttributes = false;
-				ReadName = ( Number & (long) DatabaseVersionFlags.AtrName ) == 0;
+				ReadName = ( Number & (long) GameConfigurationFlags.AtrName ) == 0;
 			}
 
-			ReadZone = Number & (long)DatabaseVersionFlags.Zone;
-			ReadLink = Number & (long) DatabaseVersionFlags.Link;
-			ReadKey = Number & (long) DatabaseVersionFlags.AtrKey;
-			ReadParent = Number & (long) DatabaseVersionFlags.Parent;
-			ReadMoney = Number & (long) DatabaseVersionFlags.AtrMoney;
-			ReadExtFlags = Number & (long) DatabaseVersionFlags.Xflags;
-			HasTypedQuotas = Number & (long) DatabaseVersionFlags.Tquotas;
-			ReadTimeStamps = Number & (long) DatabaseVersionFlags.Timestamps;
-			HasVisualAttributes = Number & (long) DatabaseVersionFlags.VisualAttrs;
-			GameFlags = Number & (long) ~DatabaseVersionFlags.Mask;
-			GameVersion = Number & (long) DatabaseVersionFlags.Mask;
+			ReadZone = Number & (long)GameConfigurationFlags.Zone;
+			ReadLink = Number & (long) GameConfigurationFlags.Link;
+			ReadKey = Number & (long) GameConfigurationFlags.AtrKey;
+			ReadParent = Number & (long) GameConfigurationFlags.Parent;
+			ReadMoney = Number & (long) GameConfigurationFlags.AtrMoney;
+			ReadExtFlags = Number & (long) GameConfigurationFlags.Xflags;
+			HasTypedQuotas = Number & (long) GameConfigurationFlags.Tquotas;
+			ReadTimeStamps = Number & (long) GameConfigurationFlags.Timestamps;
+			HasVisualAttributes = Number & (long) GameConfigurationFlags.VisualAttrs;
+			GameFlags = Number & (long) ~GameConfigurationFlags.Mask;
+			GameVersion = Number & (long) GameConfigurationFlags.Mask;
 		}
 
 		private void SetSpecifics()
@@ -101,9 +104,9 @@
 			{
 				case GameType.Mux:
 				case GameType.TinyMush:
-					ReadGameFlags3Words = Number & (long) DatabaseVersionFlags.Flags3;
-					ReadPowers = Number & (long)DatabaseVersionFlags.Powers;
-					ReadNewStrings = Number & (long)DatabaseVersionFlags.Quoted;
+					ReadGameFlags3Words = Number & (long) GameConfigurationFlags.Flags3;
+					ReadPowers = Number & (long)GameConfigurationFlags.Powers;
+					ReadNewStrings = Number & (long)GameConfigurationFlags.Quoted;
 					break;
 			}
 		}
