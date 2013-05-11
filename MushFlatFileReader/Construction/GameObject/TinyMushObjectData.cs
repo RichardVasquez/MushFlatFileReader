@@ -1,7 +1,7 @@
 ﻿using System;
 using MushFlatFileReader.Construction.Converters;
-using MushFlatFileReader.GameHeaders;
-using MushFlatFileReader.NamedTypes;
+using MushFlatFileReader.Construction.GameHeaders;
+using MushFlatFileReader.Construction.NamedTypes;
 
 namespace MushFlatFileReader.Construction.GameObject
 {

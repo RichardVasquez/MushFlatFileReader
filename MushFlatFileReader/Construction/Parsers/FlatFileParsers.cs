@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using MushFlatFileReader.GameHeaders;
+using MushFlatFileReader.Construction.GameHeaders;
 using Sprache;
 
 namespace MushFlatFileReader.Construction.Parsers
@@ -36,7 +36,6 @@ namespace MushFlatFileReader.Construction.Parsers
 			return
 				from a in Parse.Char('*')
 				from rest in Parse.AnyChar.Until(Parse.Char('\n'))
-				from e in Parse.Char('\n')
 				select new HeaderEnding("");
 		}
 

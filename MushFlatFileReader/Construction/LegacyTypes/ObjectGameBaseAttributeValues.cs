@@ -1,4 +1,4 @@
-﻿namespace MushFlatFileReader.LegacyTypes
+﻿namespace MushFlatFileReader.Construction.LegacyTypes
 {
 	// ReSharper disable InconsistentNaming
 	public enum ObjectGameBaseAttributeValues

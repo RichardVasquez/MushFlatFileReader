@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using MushFlatFileReader.NamedTypes;
+using MushFlatFileReader.Construction.NamedTypes;
 
 namespace MushFlatFileReader.Construction.GameObject
 {

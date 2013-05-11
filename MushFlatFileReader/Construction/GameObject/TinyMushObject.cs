@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MushFlatFileReader.NamedTypes;
+using MushFlatFileReader.Construction.NamedTypes;
 
 namespace MushFlatFileReader.Construction.GameObject
 {

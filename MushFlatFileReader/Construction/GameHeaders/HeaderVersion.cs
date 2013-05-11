@@ -1,8 +1,7 @@
-﻿using MushFlatFileReader.Construction;
-using MushFlatFileReader.LegacyTypes;
-using MushFlatFileReader.NamedTypes;
+﻿using MushFlatFileReader.Construction.LegacyTypes;
+using MushFlatFileReader.Construction.NamedTypes;
 
-namespace MushFlatFileReader.GameHeaders
+namespace MushFlatFileReader.Construction.GameHeaders
 {
 	public sealed class HeaderVersion:MushHeader
 	{

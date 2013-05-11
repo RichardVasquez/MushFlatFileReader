@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using MushFlatFileReader.GameHeaders;
-using MushFlatFileReader.NamedTypes;
+using MushFlatFileReader.Construction.GameHeaders;
+using MushFlatFileReader.Construction.NamedTypes;
 
 namespace MushFlatFileReader.Construction
 {
@@ -16,8 +16,20 @@ namespace MushFlatFileReader.Construction
 		public static Dictionary<long, MushEntry> Entries = new Dictionary<long, MushEntry>();
 
 		public static bool HeaderGotten { get { return Headers.ContainsKey("GameFormat"); } }
-
 		public static bool MyDebug = false;
+
+		public static bool HasData
+		{
+			get { return Headers.Count > 0 && Attributes.Count > 0 && Entries.Count > 0; }
+		}
+
+		public static void Reset()
+		{
+			Headers = new Dictionary<string, IMushHeader>();
+			Attributes = new Dictionary<long, HeaderAttribute>();
+			Entries = new Dictionary<long, MushEntry>();
+			MyDebug = false;
+		}
 
 		public static bool ReadNewStrings
 		{

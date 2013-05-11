@@ -1,6 +1,4 @@
-﻿using MushFlatFileReader.Construction;
-
-namespace MushFlatFileReader.GameHeaders
+﻿namespace MushFlatFileReader.Construction.GameHeaders
 {
 	public sealed class HeaderSize:MushHeader
 	{

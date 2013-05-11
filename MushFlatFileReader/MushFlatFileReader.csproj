@@ -77,7 +77,8 @@
     <Compile Include="Construction\GameHeaders\MushHeader.cs" />
     <Compile Include="Construction\Parsers\FlatFileParsers.cs" />
     <Compile Include="Construction\Parsers\ObjectDataParsers.cs" />
-    <Compile Include="Construction\TinyMushObjectFactory.cs" />
+    <Compile Include="Reader.cs" />
+    <Compile Include="TinyMushObjectFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Construction\GameObject\TinyMushObject.cs" />

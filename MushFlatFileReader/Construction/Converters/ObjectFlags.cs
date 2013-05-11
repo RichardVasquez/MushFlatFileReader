@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using MushFlatFileReader.GameHeaders;
-using MushFlatFileReader.LegacyTypes;
-using MushFlatFileReader.NamedTypes;
+using MushFlatFileReader.Construction.GameHeaders;
+using MushFlatFileReader.Construction.LegacyTypes;
+using MushFlatFileReader.Construction.NamedTypes;
 
 namespace MushFlatFileReader.Construction.Converters
 {

@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Text;
-using MushFlatFileReader.Construction;
-using MushFlatFileReader.NamedTypes;
+using MushFlatFileReader.Construction.NamedTypes;
 
-namespace MushFlatFileReader.GameHeaders
+namespace MushFlatFileReader.Construction.GameHeaders
 {
 	public sealed class MushEntry:MushHeader
 	{

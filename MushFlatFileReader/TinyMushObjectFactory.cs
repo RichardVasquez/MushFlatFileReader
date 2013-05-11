@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MushFlatFileReader.Construction;
 using MushFlatFileReader.Construction.Converters;
+using MushFlatFileReader.Construction.GameHeaders;
 using MushFlatFileReader.Construction.GameObject;
+using MushFlatFileReader.Construction.LegacyTypes;
+using MushFlatFileReader.Construction.NamedTypes;
 using MushFlatFileReader.Construction.Parsers;
-using MushFlatFileReader.GameHeaders;
-using MushFlatFileReader.LegacyTypes;
-using MushFlatFileReader.NamedTypes;
 using Sprache;
 
-namespace MushFlatFileReader.Construction
+namespace MushFlatFileReader
 {
 	public static class TinyMushObjectFactory
 	{
@@ -208,5 +209,4 @@ namespace MushFlatFileReader.Construction
 				: new Tuple<long, string>(newFlag,name);
 		}
 	}
-
 }

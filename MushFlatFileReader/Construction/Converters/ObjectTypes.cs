@@ -1,5 +1,5 @@
-﻿using MushFlatFileReader.GameHeaders;
-using MushFlatFileReader.NamedTypes;
+﻿using MushFlatFileReader.Construction.GameHeaders;
+using MushFlatFileReader.Construction.NamedTypes;
 
 namespace MushFlatFileReader.Construction.Converters
 {

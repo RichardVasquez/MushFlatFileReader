@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
-using MushFlatFileReader.Construction;
 
-namespace MushFlatFileReader.GameHeaders
+namespace MushFlatFileReader.Construction.GameHeaders
 {
 	[DebuggerDisplay("{Number}:{Text}")]
 	public sealed class HeaderAttribute:MushHeader

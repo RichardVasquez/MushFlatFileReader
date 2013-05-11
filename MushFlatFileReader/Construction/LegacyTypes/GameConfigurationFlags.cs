@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MushFlatFileReader.LegacyTypes
+namespace MushFlatFileReader.Construction.LegacyTypes
 {
 	[Flags]
 	public enum GameConfigurationFlags : long

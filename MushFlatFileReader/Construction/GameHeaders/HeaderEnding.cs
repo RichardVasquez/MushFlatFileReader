@@ -1,4 +1,4 @@
-﻿namespace MushFlatFileReader.GameHeaders
+﻿namespace MushFlatFileReader.Construction.GameHeaders
 {
 	public sealed class HeaderEnding:MushHeader
 	{

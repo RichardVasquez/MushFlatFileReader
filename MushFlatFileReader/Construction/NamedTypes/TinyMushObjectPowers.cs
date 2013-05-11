@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace MushFlatFileReader.NamedTypes
+namespace MushFlatFileReader.Construction.NamedTypes
 {
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum TinyMushObjectPowers
