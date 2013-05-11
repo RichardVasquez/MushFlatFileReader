@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using MushFlatFileReader.Construction.GameObject;
 using MushFlatFileReader.GameHeaders;
 using MushFlatFileReader.NamedTypes;
 
 namespace MushFlatFileReader.Construction
 {
+	/// <summary>
+	/// This is a big repository for later collation by the <see cref="TinyMushObjectFactory"/>
+	/// </summary>
 	public static class Universe
 	{
 		public static Dictionary<string, IMushHeader> Headers = new Dictionary<string, IMushHeader>();
@@ -292,15 +294,6 @@ namespace MushFlatFileReader.Construction
 				return;
 			}
 			Entries[ mushEntry.Number ] = mushEntry;
-		}
-
-		public static TinyMushObject GetObject(long l)
-		{
-			if (Entries.ContainsKey(l))
-			{
-				return new TinyMushObject(Entries[l]);
-			}
-			return null;
 		}
 	}
 }

@@ -23,7 +23,8 @@ namespace MushFlatFileReader
 			var ph = FlatFileParsers.Headers().TryParse(text);
 			sw2.Start();
 			var keys = Universe.Entries.Keys;
-			List<TinyMushObject> gameObjects = keys.Select(Universe.GetObject).ToList();
+			List<TinyMushObject> gameObjects = keys.Select(TinyMushObjectFactory.Get).ToList();
+			//List<TinyMushObject> gameObjects = keys.Select(Universe.GetObject).ToList();
 			sw1.Stop();
 			sw2.Stop();
 			sw3.Start();

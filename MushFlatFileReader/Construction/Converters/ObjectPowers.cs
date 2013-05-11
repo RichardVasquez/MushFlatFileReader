@@ -7,7 +7,7 @@ namespace MushFlatFileReader.Construction.Converters
 {
 	public static class ObjectPowers
 	{
-		public static IEnumerable<TinyMushObjectPowers> SetPowers(MushEntry me)
+		public static IEnumerable<TinyMushObjectPowers> GetPowers(MushEntry me)
 		{
 			List<TinyMushPowers1> p1 = GameEnums.Match<TinyMushPowers1>(me, me.Powers1);
 			List<TinyMushPowers2> p2 = GameEnums.Match<TinyMushPowers2>(me, me.Powers2);

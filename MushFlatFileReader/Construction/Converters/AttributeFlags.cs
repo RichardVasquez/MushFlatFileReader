@@ -7,7 +7,7 @@ namespace MushFlatFileReader.Construction.Converters
 {
 	public static class AttributeFlags
 	{
-		public static void GetFlags(long flags, TinyMushObjectAttribute attr)
+		public static void SetFlags(long flags, TinyMushObjectAttribute attr)
 		{
 			List<TinyMushAttributeFlags> res = new List<TinyMushAttributeFlags>();
 
