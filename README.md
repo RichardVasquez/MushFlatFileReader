@@ -8,7 +8,7 @@ It's pretty fast though, and I could likely make it faster if I cached some of t
 
 I'm throwing this out there as proof of concept, and as a jumping off point for others who might be able to use it.  Feel free to send me pull requests.
 
-This latest push has a couple of significant differences besides the refactoring.  It's now a separate library rather than an executable.  I've added a quick example project to the solution that hopefully clears that up.  The output has changed slightly as well while I minimized the code contained in the TinyMushObject class.
+I split out an assembly since it's going to be used in another project.  It's still a basic library with a simple executable to read the database and spit out a JSON file with some reporting information.
 
 ## Example Output
 
