@@ -1,5 +1,5 @@
 ﻿using MushFlatFileReader.Construction.LegacyTypes;
-using MushFlatFileReader.Construction.NamedTypes;
+using TinyMushDataStructures.NamedTypes;
 
 namespace MushFlatFileReader.Construction.GameHeaders
 {

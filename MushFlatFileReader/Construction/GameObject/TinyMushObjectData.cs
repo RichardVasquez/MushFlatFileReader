@@ -1,12 +1,14 @@
 ﻿using System;
 using MushFlatFileReader.Construction.Converters;
 using MushFlatFileReader.Construction.GameHeaders;
-using MushFlatFileReader.Construction.NamedTypes;
+using TinyMushDataStructures.Interfaces;
+using TinyMushDataStructures.NamedTypes;
 
 namespace MushFlatFileReader.Construction.GameObject
 {
-	public class TinyMushObjectData
+	public class TinyMushObjectData:IMushObjectData
 	{
+		#region Implementation of IMushObjectData
 		public long DbRef { get; private set; }
 		public long Location { get; private set; }
 		public long Zone { get; private set; }
@@ -24,6 +26,7 @@ namespace MushFlatFileReader.Construction.GameObject
 		public string LockKey { get; private set; }
 
 		public TinyMushObjectType ObjectType { get; private set; }
+		#endregion
 
 		public TinyMushObjectData(MushEntry me)
 		{

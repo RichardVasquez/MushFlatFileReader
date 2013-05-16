@@ -4,8 +4,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using MushFlatFileReader;
-using MushFlatFileReader.Construction.GameObject;
 using Newtonsoft.Json;
+using TinyMushDataStructures.GameObject;
 
 namespace MushFlatFileExample
 {

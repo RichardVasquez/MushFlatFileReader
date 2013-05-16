@@ -64,11 +64,9 @@
     <Compile Include="Construction\GameHeaders\HeaderEnding.cs" />
     <Compile Include="Construction\GameHeaders\MushEntryAttribute.cs" />
     <Compile Include="Construction\GameObject\TinyMushObjectData.cs" />
-    <Compile Include="Construction\NamedTypes\TinyMushAttributeFlags.cs" />
     <Compile Include="Construction\LegacyTypes\AttributeFlags1.cs" />
     <Compile Include="Construction\LegacyTypes\ObjectGameBaseAttributeValues.cs" />
     <Compile Include="Construction\LegacyTypes\GameConfigurationFlags.cs" />
-    <Compile Include="Construction\NamedTypes\GameType.cs" />
     <Compile Include="Construction\GameHeaders\HeaderAttribute.cs" />
     <Compile Include="Construction\GameHeaders\HeaderFreeAttribute.cs" />
     <Compile Include="Construction\GameHeaders\HeaderNextAttribute.cs" />
@@ -83,14 +81,9 @@
     <Compile Include="Reader.cs" />
     <Compile Include="TinyMushObjectFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Construction\GameObject\TinyMushObject.cs" />
-    <Compile Include="Construction\GameObject\TinyMushObjectAttribute.cs" />
-    <Compile Include="Construction\NamedTypes\TinyMushObjectFlags.cs" />
     <Compile Include="Construction\LegacyTypes\TinyMushObjectFlags1.cs" />
     <Compile Include="Construction\LegacyTypes\TinyMushObjectFlags2.cs" />
     <Compile Include="Construction\LegacyTypes\TinyMushObjectFlags3.cs" />
-    <Compile Include="Construction\NamedTypes\TinyMushObjectPowers.cs" />
-    <Compile Include="Construction\NamedTypes\TinyMushObjectType.cs" />
     <Compile Include="Construction\LegacyTypes\TinyMushPowers1.cs" />
     <Compile Include="Construction\LegacyTypes\TinyMushPowers2.cs" />
     <Compile Include="Universe.cs" />
@@ -103,6 +96,13 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TinyMushDataStructures\TinyMushDataStructures.csproj">
+      <Project>{97B6450F-56CE-4C29-AC31-15666677F9F0}</Project>
+      <Name>TinyMushDataStructures</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

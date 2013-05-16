@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MushFlatFileReader.Construction.NamedTypes;
+using TinyMushDataStructures.Interfaces;
+using TinyMushDataStructures.NamedTypes;
 
-namespace MushFlatFileReader.Construction.GameObject
+namespace TinyMushDataStructures.GameObject
 {
 	public class TinyMushObject
 	{
-		public TinyMushObjectData Data { get; private set; }
+		public IMushObjectData Data { get; private set; }
 		public string Name { get; private set; }
 
 		public HashSet<TinyMushObjectFlags> Flags = new HashSet<TinyMushObjectFlags>();
@@ -14,7 +15,7 @@ namespace MushFlatFileReader.Construction.GameObject
 		public List<TinyMushObjectAttribute> Attributes = new List<TinyMushObjectAttribute>();
 
 		public TinyMushObject(
-			TinyMushObjectData data,
+			IMushObjectData data,
 			HashSet<TinyMushObjectFlags> flags,
 			HashSet<TinyMushObjectPowers> powers,
 			IEnumerable<TinyMushObjectAttribute> attributes,

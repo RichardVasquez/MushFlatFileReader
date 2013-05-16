@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text;
-using MushFlatFileReader.Construction.NamedTypes;
+using TinyMushDataStructures.NamedTypes;
 
 namespace MushFlatFileReader.Construction.GameHeaders
 {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using MushFlatFileReader.Construction.NamedTypes;
+using TinyMushDataStructures.NamedTypes;
 
-namespace MushFlatFileReader.Construction.GameObject
+namespace TinyMushDataStructures.GameObject
 {
 	public class TinyMushObjectAttribute
 	{

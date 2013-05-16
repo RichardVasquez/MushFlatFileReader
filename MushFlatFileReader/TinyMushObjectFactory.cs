@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MushFlatFileReader.Construction;
 using MushFlatFileReader.Construction.Converters;
 using MushFlatFileReader.Construction.GameHeaders;
 using MushFlatFileReader.Construction.GameObject;
 using MushFlatFileReader.Construction.LegacyTypes;
-using MushFlatFileReader.Construction.NamedTypes;
 using MushFlatFileReader.Construction.Parsers;
 using Sprache;
+using TinyMushDataStructures.GameObject;
+using TinyMushDataStructures.NamedTypes;
 
 namespace MushFlatFileReader
 {

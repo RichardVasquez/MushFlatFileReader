@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using MushFlatFileReader.Construction.GameObject;
 using MushFlatFileReader.Construction.LegacyTypes;
-using MushFlatFileReader.Construction.NamedTypes;
+using TinyMushDataStructures.GameObject;
+using TinyMushDataStructures.NamedTypes;
 
 namespace MushFlatFileReader.Construction.Converters
 {

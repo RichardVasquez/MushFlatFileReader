@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using MushFlatFileReader.Construction.GameHeaders;
 using MushFlatFileReader.Construction.LegacyTypes;
-using MushFlatFileReader.Construction.NamedTypes;
+using TinyMushDataStructures.NamedTypes;
 
 namespace MushFlatFileReader.Construction.Converters
 {
@@ -20,7 +20,7 @@ namespace MushFlatFileReader.Construction.Converters
 			return res;
 		}
 
-		private static IEnumerable<TinyMushObjectPowers> ParsePowers1(List<TinyMushPowers1> p1)
+		private static IEnumerable<TinyMushObjectPowers> ParsePowers1(IEnumerable<TinyMushPowers1> p1)
 		{
 			List<TinyMushObjectPowers> res = new List<TinyMushObjectPowers>();
 			foreach (TinyMushPowers1 power in p1)

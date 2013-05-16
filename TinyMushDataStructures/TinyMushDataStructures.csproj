@@ -2,22 +2,20 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{CEEB696B-B282-41E1-A171-B4B7095BBE4B}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{97B6450F-56CE-4C29-AC31-15666677F9F0}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MushFlatFileExample</RootNamespace>
-    <AssemblyName>MushFlatFileExample</AssemblyName>
+    <RootNamespace>TinyMushDataStructures</RootNamespace>
+    <AssemblyName>TinyMushDataStructures</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -26,8 +24,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -48,21 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="GameObject\TinyMushObject.cs" />
+    <Compile Include="GameObject\TinyMushObjectAttribute.cs" />
+    <Compile Include="Interfaces\IMushObjectData.cs" />
+    <Compile Include="NamedTypes\GameType.cs" />
+    <Compile Include="NamedTypes\TinyMushAttributeFlags.cs" />
+    <Compile Include="NamedTypes\TinyMushObjectFlags.cs" />
+    <Compile Include="NamedTypes\TinyMushObjectPowers.cs" />
+    <Compile Include="NamedTypes\TinyMushObjectType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MushFlatFileReader\MushFlatFileReader.csproj">
-      <Project>{67583684-372D-4F70-A28C-B75480357FA8}</Project>
-      <Name>MushFlatFileReader</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TinyMushDataStructures\TinyMushDataStructures.csproj">
-      <Project>{97B6450F-56CE-4C29-AC31-15666677F9F0}</Project>
-      <Name>TinyMushDataStructures</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
